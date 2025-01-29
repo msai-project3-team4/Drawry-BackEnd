@@ -1,0 +1,33 @@
+services:
+  backend:
+    container_name: fastapi_backend
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+    networks:
+      - my_project_network
+    depends_on:
+      - mongo
+      - redis
+
+  mongo:
+    image: mongo:5.0
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
+    networks:
+      - my_project_network
+
+  redis:
+    image: redis:latest
+    container_name: redis_db
+    ports:
+      - "6379:6379"
+    networks:
+      - my_project_network
+
+networks:
+  my_project_network:
+    external: true
