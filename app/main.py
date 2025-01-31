@@ -18,7 +18,7 @@ redis_client = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, decode_responses=Tr
 
 @app.get("/")
 def read_root():
-    return {"message": "안녕하세요 1월 31일 테스트입니다., FastAPI Backend with MongoDB & Redis!"}
+    return {"message": "안녕하세요 1월 31일 GIT 테스트., FastAPI Backend with MongoDB & Redis!"}
 
 @app.get("/mongo-test")
 def mongo_test():
